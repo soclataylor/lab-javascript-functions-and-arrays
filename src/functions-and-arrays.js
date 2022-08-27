@@ -1,20 +1,62 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) 
+{
+    if(num1>num2) return num1;
+    if(num2>num1) return num2;
+    else return num1;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+function findLongestWord(words) 
+{
+    if(words.length!=0)
+      {
+        let longest='';
+        let length=0;
+
+        for(let i=0;i<words.length;i++)
+        {
+            if(words[i].length>length)
+            {
+              longest=words[i];
+              length=words[i].length;
+            }
+        }
+        return longest;
+      }
+      else return null;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+//const numbers = ['hola', 4, 'monica'];
 
-function sumNumbers() {}
+function sumNumbers(numberArray) 
+{
+  let sum=0;
+  
+  if(numberArray.length!=0)
+  {
+      for (let i=0;i<numberArray.length;i++)
+      {
+        sum+=numberArray[i];
+      }
 
+      return sum;
+    }
+
+    else return 0;
+    
+ 
+}
+
+console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
@@ -26,16 +68,60 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) 
+{
+    if(numbers.length!=0) return sumNumbers(numbers)/numbers.length;
+    else return null;
+}
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) 
+{ 
+  if(words.length!=0) 
+  {
+    sumArray=0;
+      for(let i=0;i<words.length;i++)
+      {
+        sumArray+=words[i].length;
+      }
+
+      return sumArray/words.length;
+  }
+
+  else return null;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(numbers) 
+{
+    if(numbers.length!=0)
+    {
+        let sum=0;
+
+        for (let i=0;i<numbers.length;i++)
+        {
+          switch(typeof numbers[i])
+          {
+            case 'number': sum+=numbers[i];break;
+            case 'string': sum+=(numbers[i].length);break;
+            case 'boolean': if(numbers[i]) sum++;break;
+          }
+        }
+        return sum/numbers.length;
+    }
+    else return null;
+}
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -46,15 +132,30 @@ const wordsUnique = [
   'bring',
   'sharp',
   'playground',
-  'poison',
+  /*'poison',*/
   'communion',
-  'simple',
-  'bring'
+ /*'simple',
+  'bring'*/
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) 
+{
+    /*Take the following array, remove the duplicates, and return a new array
+    includes: The includes() method determines whether an array includes a certain value 
+    among its entries, returning true or false as appropriate.
 
+    */
+   if(words.length!=0)
+   {
+      let unique = [new Set (words)];
+      return unique;
+      
+   }
+   else return null;
 
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
