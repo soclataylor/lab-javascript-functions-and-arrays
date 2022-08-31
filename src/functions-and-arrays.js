@@ -60,7 +60,35 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+/*
+that calculates the sum for array filled with (almost) 
+any type of data. Note that strings should have their length added to the total, 
+and boolean values should be coerced into their corresponding numeric values. 
+Check the tests for more details.
+
+*/
+function sum(array) 
+{
+  if(array.length!=0)
+  {
+    let suma=0;
+
+    for(let i=0;i<array.length;i++)
+    {
+      switch(typeof array[i])
+      {
+        case 'number': suma+=array[i];break;
+        case 'boolean': if(array[i])suma++;break;
+        case 'string': suma+=array[i].length;break;
+        default: throw new Error('Unsupported data type (object or array!');
+      }
+
+    }
+    return suma;
+  }
+  else return 0;
+}
 
 
 
@@ -132,10 +160,10 @@ const wordsUnique = [
   'bring',
   'sharp',
   'playground',
-  /*'poison',*/
+  'poison',
   'communion',
- /*'simple',
-  'bring'*/
+  'simple',
+  'bring'
 ];
 
 function uniquifyArray(words) 
@@ -147,8 +175,25 @@ function uniquifyArray(words)
     */
    if(words.length!=0)
    {
-      let unique = [new Set (words)];
-      return unique;
+      let uniqueWords = [...new Set(words)];
+      //console.log(uniqueWords);
+      //let unique = [new Set (words)];
+
+      /* SECOND WAY TO DO IT: 
+      for (let i=0;i<words.length;i++)
+        {
+
+            if(words.includes(words[i],i+1))
+            {
+              console.log("The array contains this word again");
+              console.log("The index of the next repetition of "+words[i]+" is "+words.indexOf(words[i],i+1));
+              indexRepeatedElement=words.indexOf(words[i],i+1);
+              words.splice(indexRepeatedElement,1);
+              console.log(words);
+            }
+        }*/
+
+      return uniqueWords;
       
    }
    else return null;
@@ -160,7 +205,13 @@ console.log(uniquifyArray(wordsUnique));
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) 
+{
+  if(array.length!=0) {return array.includes(word);}
+  
+  else return null;
+
+}
 
 
 
@@ -179,7 +230,31 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+/*
+
+Declare a function named howManyTimes that will take in an array of words 
+as the first argument, and a word to search for as the second argument. 
+The function will return the number of times that word appears in the array.
+
+*/
+function howManyTimes(array, word) 
+{
+    if(array.length!=0) 
+    {
+      let count=0;
+
+      if(array.includes(word))
+      {
+        for (let i=0;i<array.length;i++)
+        {
+          if (array[i]===word) count++;
+        }
+        return count;
+      }
+      else return 0;
+    }
+    else return 0;
+}
 
 
 
@@ -207,7 +282,10 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() 
+{
+
+}
 
 
 
